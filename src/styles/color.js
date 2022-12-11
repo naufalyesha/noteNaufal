@@ -4,7 +4,7 @@ const COLORS = {
     notes:'#fff',
     header: '#0456FA',
     headerButtons:'#000',
-    addButton:'#0456FA',
+    addButton:'yellow',
     loading:'#0000ff',
     searchBar:'#d3d3d3'
 }

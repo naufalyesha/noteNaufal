@@ -7,7 +7,7 @@ const style = StyleSheet.create({
         paddingTop: 20
     },
     newNoteButton:{
-        zIndex:9,
+        Index:9,
         position:'absolute',
         bottom:30,
         right:40,

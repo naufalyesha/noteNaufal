@@ -46,10 +46,10 @@ export default function Home({navigation}){
     }else{
         return(
             <SafeAreaView style={Style.conteiner}>
-                <Text style={Style.txtTitle}>Catatanku</Text>
+                <Text style={Style.txtTitle}>My Notes</Text>
                 <SearchBar data={data} onChange={setData}/>
                 <FlatList
-                    ListEmptyComponent={<Text style={{textAlign:'center'}}>Pencarian tidak ada</Text>}
+                    ListEmptyComponent={<Text style={{textAlign:'center'}}>It's nothing here</Text>}
                     showsVerticalScrollIndicator={false}
                     data={data}
                     numColumns={2}
@@ -67,9 +67,9 @@ export default function Home({navigation}){
                 <TouchableHighlight onPress={logout}>
                     <Text style={{
                         textAlign: 'center',
-                        fontSize: 30,
+                        fontSize: 20,
                         marginBottom: 35
-                    }}>Logout</Text>
+                    }}>Log out</Text>
                 </TouchableHighlight>
             </SafeAreaView>
         )
