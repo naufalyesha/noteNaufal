@@ -1,7 +1,7 @@
 import { useAuth } from "../../../contexts/AuthContext";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet, Text, TextInput, Button, View } from "react-native";
+import { StyleSheet, Text, Pressable, TextInput, View, Image } from "react-native";
 
 const LoginScreen = ({ navigation }) => {
     const { login } = useAuth();
@@ -9,7 +9,7 @@ const LoginScreen = ({ navigation }) => {
     const [password, setPassword] = useState("");
 
     return (
-        <View style={styles.container}>
+        <View style={styles.container}>          
             <TextInput
                 value={user}
                 onChangeText={(text) => setUser(text)}
@@ -23,12 +23,11 @@ const LoginScreen = ({ navigation }) => {
                 secureTextEntry={true}
                 style={styles.input}
             />
-
-            <Button
-                title={"Login"}
-                style={styles.input}
-                onPress={() => login(user, password)}
-            />
+            <Pressable  title={"Login"}
+                style={styles.Nops}
+                onPress={() => login(user, password)}>
+               <Text>{"Login"}</Text>
+            </Pressable>  
         </View>
     );
 };
@@ -40,14 +39,21 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#ecf0f1",
+        backgroundColor: "#87cefa",
     },
     input: {
         width: 200,
         height: 44,
         padding: 10,
         borderWidth: 1,
-        borderColor: "black",
+        borderColor: "yellow",
         marginBottom: 10,
+        borderRadius: 20,
+    },
+    Nops:{
+        borderRadius: 50,
+        paddingVertical: 12,
+        paddingHorizontal: 32,
+        backgroundColor: 'yellow',
     },
 });
