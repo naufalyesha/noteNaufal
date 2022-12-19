@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, FlatList, TouchableOpacity, Text, ActivityIndicator, TouchableHighlight, View } from 'react-native'
+import { SafeAreaView, FlatList, TouchableOpacity, Text, ActivityIndicator, Pressable, View } from 'react-native'
 import { useFocusEffect } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons'; 
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,6 +8,7 @@ import Style from './styles';
 import Colors from '../../styles/color';
 import Notes from '../../components/RenderNotes';
 import { useAuth } from "../../../contexts/AuthContext";
+import { ImageBackground } from 'react-native-web';
 
 export default function Home({navigation}){
     const { logout } = useAuth();
@@ -64,14 +65,21 @@ export default function Home({navigation}){
                 <TouchableOpacity style={Style.newNoteButton} onPress={()=>navigation.navigate('Notes',{search:false})}>
                     <AntDesign name="pluscircle" size={50} color={Colors.addButton}/>
                 </TouchableOpacity>
-                <TouchableHighlight onPress={logout}>
-                    <Text style={{
-                        textAlign: 'center',
-                        fontSize: 20,
-                        marginBottom: 35
-                    }}>Log out</Text>
-                </TouchableHighlight>
+                <Pressable  title={"Logout"}
+                    style={{
+                        alignItems: 'center',
+                        backgroundColor: 'red',
+                        width: 200,
+                        margin: 35,
+                        borderRadius: 50,
+                        paddingVertical: 12,
+                        paddingHorizontal: 32,
+                    }}
+                    onPress={() => logout()}>
+                    <Text>{"Logout"}</Text>
+                </Pressable>
             </SafeAreaView>
         )
     }   
-}
+};
+
